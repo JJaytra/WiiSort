@@ -10,8 +10,10 @@ const GameCard = ({ id, name, summary, cover }: GameCardInterface) => {
   useEffect(() => {
     const getImage = async () => {
       const data = await fetchCover(id);
-      console.log(`http:${data[0].url}`);
-      setImage(`http:${data[0].url}`);
+      console.log(data[0].image_id);
+      setImage(
+        `https://images.igdb.com/igdb/image/upload/t_cover_big/${data[0].image_id}.jpg`
+      );
     };
     getImage();
   }, []);

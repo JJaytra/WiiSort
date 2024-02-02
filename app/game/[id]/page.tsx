@@ -33,23 +33,28 @@ const GamePage = ({ params }: { params: { id: string } }) => {
   }, []);
 
   return (
-    <div className="bg-gray-200 max-h-screen flex items-center justify-center">
-      <div className="bg-white p-8 rounded shadow-md w-full max-w-lg">
+    <div className="bg-gray-200 h-screen flex items-center justify-center">
+      <div className="bg-white rounded shadow-md w-full max-w-4xl h-screen p-12">
         {gameData ? (
-          <div>
+          <div className="">
             <p className="text-2xl font-bold mb-4">{gameData.name}</p>
-            <p>Released {gameData.first_release_date}</p>
-
+            <p>
+              Released:
+              {new Date(
+                gameData.first_release_date * 1000
+              ).toLocaleDateString()}
+            </p>
             <Carousel className="rounded-xl" placeholder={"/placeholder.png"}>
               {screenshots?.map((screenshot) => (
                 <img
                   key={screenshot.id}
-                  src={`https://images.igdb.com/igdb/image/upload/t_original/${screenshot.image_id}.jpg`}
+                  src={`https://images.igdb.com/igdb/image/upload/t_screenshot_huge/${screenshot.image_id}.jpg`}
                   alt={`Screenshot ${screenshot.id}`}
                   className=" "
                 />
               ))}
             </Carousel>
+            <div className="pt-8">{gameData.summary}</div>
           </div>
         ) : (
           <p>Loading...</p>

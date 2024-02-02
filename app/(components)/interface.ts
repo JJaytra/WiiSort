@@ -17,7 +17,7 @@ export interface GameInterface {
   collections: [number];
   cover: [number];
   expanded_games: [number];
-  first_release_date: string;
+  first_release_date: number;
   franchise: number;
   franchises: [number];
   genres: [number];

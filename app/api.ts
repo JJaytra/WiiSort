@@ -13,11 +13,10 @@ export const fetchWiiGames = async () => {
           "Client-ID": IGDB_CLIENT_ID,
           dataType: "jsonp",
         },
-        body: "fields *; where platforms = 5 & category !=5; limit 50;",
+        body: "fields *; where platforms = 5 & category !=5; limit 20;",
       }
     );
     const data = await res.json();
-    console.log(data);
     return data;
   } catch (error) {
     console.log("Error: games not found");
@@ -34,7 +33,7 @@ export const fetchCover = async (game_id: number) => {
           Authorization: IGDB_TOKEN,
           "Client-ID": IGDB_CLIENT_ID,
         },
-        body: `fields url; where game=${game_id};`,
+        body: `fields image_id; where game=${game_id};`,
       }
     );
     const img = res.json();

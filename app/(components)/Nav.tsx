@@ -7,7 +7,9 @@ const Nav = () => {
     <div className="flex justify-between p-5 border-b-2 border-wiiBlue bg-slate-100">
       <div className="flex space-x-4">
         <div className="">
-          <Image src="/logo.png" alt="logo" width={100} height={40} />
+          <Link href="/">
+            <Image src="/logo.png" alt="logo" width={100} height={40} />
+          </Link>
         </div>
       </div>
       <div className="flex">
