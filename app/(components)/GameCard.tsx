@@ -19,7 +19,7 @@ const GameCard = ({ id, name, summary, cover }: GameCardInterface) => {
   }, []);
 
   return (
-    <div className="border border-black m-2 p-4 rounded-2xl flex flex-row bg-gray-50">
+    <div className="shadow-md m-2 p-4 rounded-2xl flex flex-row bg-gray-50 hover:bg-gray-300 ">
       <Link href={`/game/${id}`}>
         <div className="w-1/4">
           <img src={image} alt="a" className="rounded-lg max-w-lg mx-auto" />

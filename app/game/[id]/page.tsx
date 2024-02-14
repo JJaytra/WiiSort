@@ -59,6 +59,11 @@ const GamePage = ({ params }: { params: { id: string } }) => {
         ) : (
           <p>Loading...</p>
         )}
+
+        <div className="mt-20 font-bold">
+          <p>library</p>
+          <button className="bg-blue-200">Add</button>
+        </div>
       </div>
     </div>
   );

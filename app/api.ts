@@ -2,7 +2,7 @@ const IGDB_ENDPOINT = "https://api.igdb.com/v4/games";
 const IGDB_CLIENT_ID = "4j53ky4b5em3lyigttn0i1ra1qw8k0";
 const IGDB_TOKEN = "Bearer owuff8n55kgdje253hzsaxja5683va";
 
-export const fetchWiiGames = async () => {
+export const fetchWiiGames = async (offset: number) => {
   try {
     const res = await fetch(
       "http://localhost:8080/https://api.igdb.com/v4/games",
@@ -13,7 +13,7 @@ export const fetchWiiGames = async () => {
           "Client-ID": IGDB_CLIENT_ID,
           dataType: "jsonp",
         },
-        body: "fields *; where platforms = 5 & category !=5; limit 20;",
+        body: `fields *; where platforms = 5 & category !=5; limit 24; offset ${offset};`,
       }
     );
     const data = await res.json();
@@ -58,7 +58,6 @@ export const fetchGameByID = async (game_id: string) => {
       }
     );
     const data = await res.json();
-    console.log(data);
     return data;
   } catch (error) {
     console.log("Error: games not found");
