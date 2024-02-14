@@ -3,6 +3,7 @@ export interface GameCardInterface {
   name: string;
   summary: string;
   cover: number;
+  image_id: string;
 }
 
 export interface GameInterface {
@@ -15,7 +16,7 @@ export interface GameInterface {
   category: number;
   collection: number;
   collections: [number];
-  cover: [number];
+  cover: [];
   expanded_games: [number];
   first_release_date: number;
   franchise: number;
@@ -37,4 +38,5 @@ export interface GameInterface {
   url: string;
   videos: [number];
   websites: [number];
+  image_id: string;
 }
