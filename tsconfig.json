@@ -28,7 +28,8 @@
     ".next/types/**/*.ts",
     "app/GamePage",
     "cors.js",
-    "cors.js"
+    "cors.js",
+    "app/(models)/User.js"
   ],
   "exclude": ["node_modules"]
 }

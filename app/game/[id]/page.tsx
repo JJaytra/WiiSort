@@ -34,16 +34,41 @@ const GamePage = ({ params }: { params: { id: string } }) => {
 
   return (
     <div className="bg-gray-200 h-screen flex items-center justify-center">
-      <div className="bg-white rounded shadow-md w-full max-w-4xl h-screen p-12">
+      <div className="bg-white rounded shadow-md w-full max-w-7xl h-screen p-12">
         {gameData ? (
           <div className="">
-            <p className="text-2xl font-bold mb-4">{gameData.name}</p>
-            <p>
-              Released:
-              {new Date(
-                gameData.first_release_date * 1000
-              ).toLocaleDateString()}
-            </p>
+            {/* Game Info */}
+            <div className="mb-10 flex">
+              <div>
+                <img
+                  src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${gameData.cover.image_id}.jpg`}
+                  alt="a"
+                  className="rounded-lg max-w-lg mx-auto mr-5"
+                />
+              </div>
+
+              <div>
+                <p className="text-5xl font-bold mb-10">{gameData.name}</p>
+                <p>
+                  Released:{" "}
+                  {new Date(
+                    gameData.first_release_date * 1000
+                  ).toLocaleDateString()}
+                </p>
+                <div>
+                  <span>Genres: </span>
+                  {gameData.genres &&
+                    gameData.genres.map((genre, index) => (
+                      <span key={genre.id}>
+                        {genre.name}
+                        {index !== gameData.genres.length - 1 && ", "}
+                      </span>
+                    ))}
+                </div>
+                <div className="pt-8">{gameData.summary}</div>
+              </div>
+            </div>
+
             <Carousel className="rounded-xl" placeholder={"/placeholder.png"}>
               {screenshots?.map((screenshot) => (
                 <img
@@ -54,15 +79,15 @@ const GamePage = ({ params }: { params: { id: string } }) => {
                 />
               ))}
             </Carousel>
-            <div className="pt-8">{gameData.summary}</div>
           </div>
         ) : (
           <p>Loading...</p>
         )}
 
+        <div></div>
+
         <div className="mt-20 font-bold">
-          <p>library</p>
-          <button className="bg-blue-200">Add</button>
+          <button className="bg-blue-200 p-5">Save Game</button>
         </div>
       </div>
     </div>

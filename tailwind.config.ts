@@ -16,6 +16,7 @@ const config: Config = withMT({
       },
       colors: {
         wiiBlue: "#009ac7",
+        hoverblue: "#cae8f3",
       },
     },
   },

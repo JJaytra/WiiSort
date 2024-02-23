@@ -1,30 +1,40 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { getServerSession } from "next-auth";
+import { options } from "../api/auth/[...nextauth]/options";
 
-import { UserCircleIcon } from "@heroicons/react/16/solid";
-
-const Nav = () => {
+const Nav = async () => {
+  const session = await getServerSession(options);
   return (
-    <div className="flex justify-between p-5 border-b-4 border-wiiBlue bg-slate-100">
-      <div className="flex space-x-4">
-        <div className="">
+    <div className="flex justify-center p-5 bg-wiiBlue mb-10">
+      <div className="flex justify-between items-center text-white max-w-screen-lg w-full mx-auto text-xl">
+        <div>
           <Link href="/">
-            <Image src="/logo.png" alt="logo" width={100} height={40} />
+            <Image src="/logo_white.png" alt="logo" width={150} height={40} />
           </Link>
         </div>
-      </div>
-      <div className="flex">
-        <div className="">
-          <Link href="/library">Library</Link>
-        </div>
-        <div className="/page">
-          <UserCircleIcon />
-        </div>
-
-        <div className="">
-          <UserCircleIcon />
-        </div>
+        <Link href="/savedgames" className="hover:text-gray-300">
+          Saved
+        </Link>
+        <Link href="/Profile" className="hover:text-gray-300">
+          Profile
+        </Link>
+        <Link href="/ClientPage" className="hover:text-gray-300">
+          Client
+        </Link>
+        {session ? (
+          <Link
+            href="/api/auth/signout?callbackUrl=/"
+            className="hover:text-gray-300"
+          >
+            Logout
+          </Link>
+        ) : (
+          <Link href="/api/auth/signin" className="hover:text-gray-300">
+            Login
+          </Link>
+        )}
       </div>
     </div>
   );

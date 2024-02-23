@@ -13,34 +13,13 @@ export const fetchWiiGames = async (offset: number) => {
           "Client-ID": IGDB_CLIENT_ID,
           dataType: "jsonp",
         },
-        body: `fields *, cover.image_id; where platforms = 5 & category !=5; limit 24; offset ${offset};`,
+        body: `fields *, cover.image_id; sort total_rating desc; where platforms = 5 & category !=5; limit 24; offset ${offset};`,
       }
     );
     const data = await res.json();
-    console.log(data);
     return data;
   } catch (error) {
     console.log("Error: games not found");
-  }
-};
-
-export const fetchCover = async (game_id: number) => {
-  try {
-    const res = await fetch(
-      "http://localhost:8080/https://api.igdb.com/v4/covers",
-      {
-        method: "POST",
-        headers: {
-          Authorization: IGDB_TOKEN,
-          "Client-ID": IGDB_CLIENT_ID,
-        },
-        body: `fields image_id; where game=${game_id};`,
-      }
-    );
-    const img = res.json();
-    return img;
-  } catch (error) {
-    console.log("error");
   }
 };
 
@@ -55,7 +34,7 @@ export const fetchGameByID = async (game_id: string) => {
           "Client-ID": IGDB_CLIENT_ID,
           dataType: "jsonp",
         },
-        body: `fields *, ; where platforms = 5; where id = ${game_id}; limit 1;`,
+        body: `fields *, genres.name, cover.image_id, artworks.image_id; where platforms = 5; where id = ${game_id}; limit 1;`,
       }
     );
     const data = await res.json();
