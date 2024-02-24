@@ -58,7 +58,6 @@ const LandingPage = () => {
                 name={game.name}
                 summary={game.summary}
                 cover={game.cover}
-                image_id={game.cover.image_id}
               />
             )
         )}

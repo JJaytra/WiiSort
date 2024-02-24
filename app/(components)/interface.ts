@@ -2,8 +2,10 @@ export interface GameCardInterface {
   id: number;
   name: string;
   summary: string;
-  cover: number;
-  image_id: string;
+  cover: {
+    id: number;
+    image_id: string;
+  };
 }
 
 export interface GameInterface {
@@ -17,8 +19,8 @@ export interface GameInterface {
   collection: number;
   collections: [number];
   cover: {
-    image_id: string;
     id: number;
+    image_id: string;
   };
   expanded_games: [number];
   first_release_date: number;
