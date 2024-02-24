@@ -50,10 +50,9 @@ app.delete("/todo/delete/:id", async (req: Request, res: Response) => {
   res.json({ result });
 });
 
+// // Save game to user library
+// app.post("/game/save", async (req: Request, res: Response) => {
+//   const user = await User.findOne({ email: req.body.email });
+//   user.
 
-// Save game to user library
-app.post("/game/save", async (req: Request, res: Response) => {
-  const user = await User.findOne({ email: req.body.email });
-  user.
-
-})
+// })
