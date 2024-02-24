@@ -57,13 +57,13 @@ const GamePage = ({ params }: { params: { id: string } }) => {
                 </p>
                 <div>
                   <span>Genres: </span>
-                  {gameData.genres &&
+                  {/* {gameData.genres &&
                     gameData.genres.map((genre, index) => (
                       <span key={genre.id}>
                         {genre.name}
                         {index !== gameData.genres.length - 1 && ", "}
                       </span>
-                    ))}
+                    ))} */}
                 </div>
                 <div className="pt-8">{gameData.summary}</div>
               </div>
