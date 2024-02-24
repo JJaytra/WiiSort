@@ -17,8 +17,8 @@ export interface GameInterface {
   collection: number;
   collections: [number];
   cover: {
-    image_id: String;
-    id: Number;
+    image_id: string;
+    id: number;
   };
   expanded_games: [number];
   first_release_date: number;
@@ -26,8 +26,8 @@ export interface GameInterface {
   franchises: [number];
   genres: [
     {
-      id: Number;
-      name: String;
+      id: number;
+      name: string;
     }
   ];
   involved_companies: [number];
