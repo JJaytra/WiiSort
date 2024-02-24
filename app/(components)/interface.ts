@@ -24,7 +24,12 @@ export interface GameInterface {
   first_release_date: number;
   franchise: number;
   franchises: [number];
-  genres: [];
+  genres: [
+    {
+      id: Number;
+      name: String;
+    }
+  ];
   involved_companies: [number];
   multiplayer_modes: [number];
   name: string;
