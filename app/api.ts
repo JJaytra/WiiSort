@@ -38,6 +38,7 @@ export const fetchGameByID = async (game_id: string) => {
       }
     );
     const data = await res.json();
+    console.log(data);
     return data;
   } catch (error) {
     console.log("Error: games not found");

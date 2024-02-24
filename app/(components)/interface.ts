@@ -16,7 +16,10 @@ export interface GameInterface {
   category: number;
   collection: number;
   collections: [number];
-  cover: [];
+  cover: {
+    image_id: String;
+    id: Number;
+  };
   expanded_games: [number];
   first_release_date: number;
   franchise: number;

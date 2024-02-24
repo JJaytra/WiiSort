@@ -7,7 +7,7 @@ import { options } from "../api/auth/[...nextauth]/options";
 const Nav = async () => {
   const session = await getServerSession(options);
   return (
-    <div className="flex justify-center p-5 bg-wiiBlue mb-10">
+    <div className="flex justify-center p-5 bg-wiiBlue mb-10 h-24 ">
       <div className="flex justify-between items-center text-white max-w-screen-lg w-full mx-auto text-xl">
         <div>
           <Link href="/">
@@ -17,11 +17,11 @@ const Nav = async () => {
         <Link href="/savedgames" className="hover:text-gray-300">
           Saved
         </Link>
+        <Link href="/Library" className="hover:text-gray-300">
+          Library
+        </Link>
         <Link href="/Profile" className="hover:text-gray-300">
           Profile
-        </Link>
-        <Link href="/ClientPage" className="hover:text-gray-300">
-          Client
         </Link>
         {session ? (
           <Link
